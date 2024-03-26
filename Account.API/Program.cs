@@ -1,5 +1,6 @@
 using Account.API;
 using Account.API.Database;
+using Account.API.Profiles;
 using Account.API.Services.Implementation;
 using Account.API.Services.Interface;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +11,7 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddAutoMapper(cfg => cfg.AddProfile<BankAccountProfile>(), typeof(Program));
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
