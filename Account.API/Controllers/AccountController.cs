@@ -1,6 +1,8 @@
 using Account.API.Models;
+using Account.API.DTO;
 using Account.API.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
 
 namespace Account.API.Controllers;
 
@@ -9,16 +11,19 @@ namespace Account.API.Controllers;
 public class AccountController : ControllerBase
 {
     private readonly IAccountRepository _accountRepository;
-    public AccountController(IAccountRepository accountRepository)
+    private readonly IMapper _mapper;
+    public AccountController(IAccountRepository accountRepository, IMapper mapper)
     {
         _accountRepository=accountRepository;
+        _mapper = mapper;
     }
 
     [HttpGet("GetAllAccounts")]
-    public async Task<ActionResult<IEnumerable<BankAccount>>> GetAllAccounts()
+    public async Task<ActionResult<IEnumerable<BankAccountResponse>>> GetAllAccounts()
         {
             var result = await _accountRepository.GetAllBankAccounts();
-            return Ok(result);
+            var bankAccounts = _mapper.Map<IEnumerable<BankAccountResponse>>(result);
+            return Ok(bankAccounts);
         }
 
      [HttpGet("GetBankAccount/{id}")]  
@@ -33,7 +38,9 @@ public class AccountController : ControllerBase
        public async Task<IActionResult> AddBankAccount(BankAccount bankAccount)
         {
             var result = await _accountRepository.PostBankAccount(bankAccount);
-            return Ok(result);  
+            // var vendor = _mapper.Map<BankAccount>(ba);
+            var bankAccountDto = _mapper.Map<BankAccountResponse>(result);
+            return Ok(bankAccountDto);  
         }
 
         [HttpDelete("{id}")]
