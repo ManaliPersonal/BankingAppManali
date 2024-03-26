@@ -9,3 +9,10 @@
 2024-03-26 13:20:09.994 +05:30 [INF] End of publish message to inform Transaction service for success
 2024-03-26 13:20:43.148 +05:30 [INF] entered in Exception block
 2024-03-26 13:20:43.149 +05:30 [INF] Capture Exception messageException of type 'System.Exception' was thrown.
+2024-03-26 17:47:13.691 +05:30 [INF] entered in Exception block
+2024-03-26 17:47:13.774 +05:30 [INF] Capture Exception messageException of type 'System.Exception' was thrown.
+2024-03-26 17:47:54.887 +05:30 [INF] entered in Exception block
+2024-03-26 17:47:54.887 +05:30 [INF] Capture Exception messageException of type 'System.Exception' was thrown.
+2024-03-26 18:02:17.720 +05:30 [INF] outside of the if block
+2024-03-26 18:02:17.721 +05:30 [INF] Entered in else Block of transactiontype
+2024-03-26 18:02:17.763 +05:30 [INF] End of publish message to inform Transaction service for success

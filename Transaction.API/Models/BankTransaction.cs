@@ -17,6 +17,6 @@ namespace Transaction.API.Models
 
         public DateTime TransactionDate{get; set;}
 
-        public int setflag { get; set; }
+        
     }
 }

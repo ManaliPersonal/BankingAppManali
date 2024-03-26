@@ -41,7 +41,7 @@ namespace Account.API
         
 
                     Log.Information("outside of the if block");
-                    Log.Information(response.setflag.ToString());
+                   
 
                     if (response.TransactionType==1)
                     {

@@ -11,6 +11,6 @@ public class TransactionRequest
       
         public decimal Balance { get; set; }
         public int TransactionType {get; set;}
-       [JsonIgnore]
-        public int setflag{get; set;}
+       
+        
 }
