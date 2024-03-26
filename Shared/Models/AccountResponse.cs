@@ -4,7 +4,10 @@ namespace Shared.Models
     {
         public int TransactionId { get; set; }
         public int AccountId { get; set; }
+
         public decimal Balance{ get; set; }
         public bool IsSuccess { get; set; }
+
+        public int TransactionType{get; set;}
     }
 }

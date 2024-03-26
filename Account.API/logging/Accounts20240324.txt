@@ -1,0 +1,48 @@
+2024-03-24 16:52:14.584 +05:30 [INF] entered in Exception block
+2024-03-24 16:52:14.672 +05:30 [INF] Capture Exception messageException of type 'System.Exception' was thrown.
+2024-03-24 16:55:12.956 +05:30 [INF] entered in Exception block
+2024-03-24 16:55:12.957 +05:30 [INF] Capture Exception messageException of type 'System.Exception' was thrown.
+2024-03-24 17:03:16.141 +05:30 [INF] outside of the if block
+2024-03-24 17:03:16.207 +05:30 [INF] 0
+2024-03-24 17:03:16.208 +05:30 [INF] Entered in If Block
+2024-03-24 17:03:16.237 +05:30 [INF] Before savechanges method of the if block
+2024-03-24 17:03:16.430 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-24 17:04:05.901 +05:30 [INF] entered in Exception block
+2024-03-24 17:04:05.901 +05:30 [INF] Capture Exception messageException of type 'System.Exception' was thrown.
+2024-03-24 17:05:42.012 +05:30 [INF] outside of the if block
+2024-03-24 17:05:42.012 +05:30 [INF] 0
+2024-03-24 17:05:42.012 +05:30 [INF] Entered in If Block
+2024-03-24 17:05:42.013 +05:30 [INF] Before savechanges method of the if block
+2024-03-24 17:05:42.028 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-24 17:06:51.585 +05:30 [INF] entered in Exception block
+2024-03-24 17:06:51.586 +05:30 [INF] Capture Exception messageException of type 'System.Exception' was thrown.
+2024-03-24 17:08:50.807 +05:30 [INF] outside of the if block
+2024-03-24 17:08:50.807 +05:30 [INF] 0
+2024-03-24 17:08:50.807 +05:30 [INF] Entered in If Block
+2024-03-24 17:08:50.807 +05:30 [INF] Before savechanges method of the if block
+2024-03-24 17:08:50.817 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-24 17:09:42.932 +05:30 [INF] outside of the if block
+2024-03-24 17:09:42.932 +05:30 [INF] 0
+2024-03-24 17:09:42.932 +05:30 [INF] Entered in If Block
+2024-03-24 17:09:42.932 +05:30 [INF] Before savechanges method of the if block
+2024-03-24 17:09:42.943 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-24 17:10:55.602 +05:30 [INF] entered in Exception block
+2024-03-24 17:10:55.602 +05:30 [INF] Capture Exception messageException of type 'System.Exception' was thrown.
+2024-03-24 17:11:53.309 +05:30 [INF] outside of the if block
+2024-03-24 17:11:53.309 +05:30 [INF] 0
+2024-03-24 17:11:53.309 +05:30 [INF] Entered in If Block
+2024-03-24 17:11:53.309 +05:30 [INF] Before savechanges method of the if block
+2024-03-24 17:11:53.317 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-24 17:12:33.435 +05:30 [INF] outside of the if block
+2024-03-24 17:12:33.435 +05:30 [INF] 0
+2024-03-24 17:12:33.435 +05:30 [INF] Entered in else Block of transactiontype
+2024-03-24 17:12:33.444 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-24 17:18:09.863 +05:30 [INF] outside of the if block
+2024-03-24 17:18:09.864 +05:30 [INF] 0
+2024-03-24 17:18:09.864 +05:30 [INF] Entered in else Block of transactiontype
+2024-03-24 17:18:09.880 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-24 17:18:52.845 +05:30 [INF] outside of the if block
+2024-03-24 17:18:52.845 +05:30 [INF] 0
+2024-03-24 17:18:52.845 +05:30 [INF] Entered in If Block
+2024-03-24 17:18:52.845 +05:30 [INF] Before savechanges method of the if block
+2024-03-24 17:18:52.855 +05:30 [INF] End of publish message to inform Transaction service for success

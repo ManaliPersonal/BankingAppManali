@@ -1,0 +1,11 @@
+2024-03-26 13:19:31.040 +05:30 [INF] outside of the if block
+2024-03-26 13:19:31.165 +05:30 [INF] 0
+2024-03-26 13:19:31.165 +05:30 [INF] Entered in If Block
+2024-03-26 13:19:31.269 +05:30 [INF] Before savechanges method of the if block
+2024-03-26 13:19:38.554 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-26 13:20:09.898 +05:30 [INF] outside of the if block
+2024-03-26 13:20:09.899 +05:30 [INF] 0
+2024-03-26 13:20:09.899 +05:30 [INF] Entered in else Block of transactiontype
+2024-03-26 13:20:09.994 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-26 13:20:43.148 +05:30 [INF] entered in Exception block
+2024-03-26 13:20:43.149 +05:30 [INF] Capture Exception messageException of type 'System.Exception' was thrown.

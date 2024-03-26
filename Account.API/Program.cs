@@ -5,6 +5,7 @@ using Account.API.Services.Interface;
 using Microsoft.EntityFrameworkCore;
 using Plain.RabbitMQ;
 using RabbitMQ.Client;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,14 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+//builder.Host.UseSerilog();
+// Log.Logger = new LoggerConfiguration().MinimumLevel.Debug().
+//     WriteTo.File("log/Accounts.txt", rollingInterval: RollingInterval.Day).CreateLogger();
+
+    Log.Logger = new LoggerConfiguration().MinimumLevel.Information().
+    WriteTo.File("logging/Accounts.txt", rollingInterval: RollingInterval.Day).CreateLogger();
+
+//
 //Configure database service
 var connectionstring= builder.Configuration.GetConnectionString("mysql");
 

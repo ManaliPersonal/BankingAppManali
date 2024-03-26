@@ -1,0 +1,18 @@
+2024-03-22 21:38:58.039 +05:30 [INF] test
+2024-03-22 21:38:58.286 +05:30 [INF] acconttransaction setflag value is1
+2024-03-22 21:39:02.329 +05:30 [INF] Outside of Setflag loop
+2024-03-22 21:43:00.233 +05:30 [INF] test
+2024-03-22 21:43:00.398 +05:30 [INF] acconttransaction setflag value is1
+2024-03-22 21:43:04.082 +05:30 [INF] Outside of Setflag loop
+2024-03-22 21:43:26.655 +05:30 [INF] test
+2024-03-22 21:43:26.655 +05:30 [INF] acconttransaction setflag value is1
+2024-03-22 21:43:26.786 +05:30 [INF] Outside of Setflag loop
+2024-03-22 21:43:42.651 +05:30 [INF] test
+2024-03-22 21:43:42.651 +05:30 [INF] acconttransaction setflag value is1
+2024-03-22 21:43:42.699 +05:30 [INF] Outside of Setflag loop
+2024-03-22 21:44:21.658 +05:30 [INF] test
+2024-03-22 21:44:21.658 +05:30 [INF] acconttransaction setflag value is1
+2024-03-22 21:44:21.706 +05:30 [INF] Outside of Setflag loop
+2024-03-22 21:44:46.035 +05:30 [INF] test
+2024-03-22 21:44:46.035 +05:30 [INF] acconttransaction setflag value is1
+2024-03-22 21:44:46.264 +05:30 [INF] Outside of Setflag loop

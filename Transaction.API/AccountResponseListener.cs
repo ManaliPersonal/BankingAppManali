@@ -1,7 +1,9 @@
 using Newtonsoft.Json;
 using Plain.RabbitMQ;
+using Serilog;
 using Shared.Models;
 using Transaction.API.Database;
+using Transaction.API.Models;
 
 namespace  Transaction.API
 {
@@ -30,11 +32,23 @@ namespace  Transaction.API
          private bool Subscribe(string message, IDictionary<string, object> header)
         {
             var response = JsonConvert.DeserializeObject<AccountResponse>(message);
+            
+
+
             if (!response.IsSuccess)
             {
                 using (var scope = _scopeFactory.CreateScope())
                 {
                     var _transactionContext = scope.ServiceProvider.GetService<TransactionContext>();
+                    //Mnali
+                  AccountTransaction accountTransaction=_transactionContext.Transactions.Find(response.TransactionId);
+                  Log.Information("Outside of Setflag loop");
+                  
+                //    if (accountTransaction.TransactionType==1)
+                //    {
+                //     Log.Information("setflag to 1 inside AccountResponse");
+                    
+                //    }
 
                     // if transaction is not successful, remove transaction item
                     var transaction = _transactionContext.Transactions.Where(o => o.AccountId == response.AccountId && o.TransactionId == response.TransactionId).FirstOrDefault();

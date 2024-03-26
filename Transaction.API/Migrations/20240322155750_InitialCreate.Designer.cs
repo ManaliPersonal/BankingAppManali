@@ -11,7 +11,7 @@ using Transaction.API.Database;
 namespace Transaction.API.Migrations
 {
     [DbContext(typeof(TransactionContext))]
-    [Migration("20240321130844_InitialCreate")]
+    [Migration("20240322155750_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,7 +23,7 @@ namespace Transaction.API.Migrations
 
             modelBuilder.Entity("Transaction.API.Models.AccountTransaction", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("TransactionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
@@ -36,13 +36,13 @@ namespace Transaction.API.Migrations
                     b.Property<DateTime>("TransactionDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<int>("TransactionId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TransactionType")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<int>("setflag")
+                        .HasColumnType("int");
+
+                    b.HasKey("TransactionId");
 
                     b.ToTable("Transactions");
                 });

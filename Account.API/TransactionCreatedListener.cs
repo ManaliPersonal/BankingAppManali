@@ -8,6 +8,7 @@ using Shared.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Transactions;
 using Shared.Enums;
+using Serilog;
 
 namespace Account.API
 {
@@ -37,44 +38,29 @@ namespace Account.API
                     // if available balance is less then requested amount
                     if (BankAccount == null || BankAccount.AccountBalance < response.Amount)
                         throw new Exception();
+        
 
+                    Log.Information("outside of the if block");
+                    Log.Information(response.setflag.ToString());
 
-                    //  reduce the amount if debit
+                    if (response.TransactionType==1)
+                    {
+                        Log.Information("Entered in If Block");
+                        BankAccount.AccountBalance=BankAccount.AccountBalance+response.Amount;
+                        _context.Entry(BankAccount).State = EntityState.Modified;
+                        Log.Information("Before savechanges method of the if block");
+                        _context.SaveChanges();
+
+                    }
+                    else
+                    {
+                         //  reduce the amount if debit
+                    Log.Information("Entered in else Block of transactiontype");
                     BankAccount.AccountBalance = BankAccount.AccountBalance - response.Amount;
                     _context.Entry(BankAccount).State = EntityState.Modified;
                     _context.SaveChanges();
 
-                    if(response.TransactionType==TransactionType.Credit)
-                    {
-                        BankAccount.AccountBalance=BankAccount.AccountBalance+response.Amount;
                     }
-
-
-                    // BankAccount bankAccount = _context.Accounts.Find(response.AccountId);
-                    // if (bankAccount == null)
-                    //     throw new Exception("Account not found");
-
-                    // // Handle credit transaction
-                    // if (response.TransactionType == TransactionType.Credit)
-                    // {
-                    //     bankAccount.Balance += response.Amount;
-                    // }
-                    // // Handle debit transaction
-                    // else if (response.TransactionType == TransactionType.Debit)
-                    // {
-                    //     if (bankAccount.Balance < response.Amount)
-                    //         throw new Exception("Insufficient funds");
-
-                    //     bankAccount.Balance -= response.Amount;
-                    // }
-                    // else
-                    // {
-                    //     throw new Exception("Invalid transaction type");
-                    // }
-
-                    // _context.Entry(bankAccount).State = EntityState.Modified;
-                    // _context.SaveChanges();
-
 
 
                     // publish message to inform Transaction service for success
@@ -84,12 +70,16 @@ namespace Account.API
                             TransactionId = response.TransactionId,
                             AccountId = response.AccountId,
                             Balance = response.Balance,
-                            IsSuccess = true
+                            IsSuccess = true,
+                            TransactionType=response.TransactionType
                         }
                     ), "account_response_routingkey", null);
+
+                    Log.Information("End of publish message to inform Transaction service for success");
                 }
                 catch (Exception ex)
                 {
+                    Log.Information("entered in Exception block");
                     // publish message to inform Transaction service for failed
                     _publisher.Publish(JsonConvert.SerializeObject(
                         new AccountResponse
@@ -97,9 +87,12 @@ namespace Account.API
                             TransactionId = response.TransactionId,
                             AccountId = response.AccountId,
                             Balance = response.Balance,
-                            IsSuccess = false
+                            IsSuccess = false,
+                            TransactionType=response.TransactionType
                         }
                     ), "account_response_routingkey", null);
+
+                    Log.Information("Capture Exception message"+ex.Message);
                 }
                 return true;
             }
