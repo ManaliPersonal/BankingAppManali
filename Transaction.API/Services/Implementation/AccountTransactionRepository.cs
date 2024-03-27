@@ -6,6 +6,7 @@ using Plain.RabbitMQ;
 using Serilog;
 using Shared.Models;
 using Transaction.API.Database;
+using Transaction.API.Enums;
 using Transaction.API.Models;
 using Transaction.API.Services.Interface;
 
@@ -47,14 +48,16 @@ public class AccountTransactionRepository : IAccountTransaction
          // new inserted identity value
         int id = accountTransaction.TransactionId;
         Log.Information("test");
+        long test=(long)TransactionType.Debit;
        
 
             _publisher.Publish(JsonConvert.SerializeObject(new TransactionRequest
             {
+               
                 TransactionId = accountTransaction.TransactionId,
                 AccountId = accountTransaction.AccountId,
                 Amount = accountTransaction.Amount,
-                TransactionType=accountTransaction.TransactionType               
+                TransactionType= (Shared.Enums.TransactionType)(int)accountTransaction.TransactionType               
                 
             }),
               "transaction_created_routingkey",   // routing key

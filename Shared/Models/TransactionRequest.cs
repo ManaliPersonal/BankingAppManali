@@ -10,7 +10,9 @@ public class TransactionRequest
         public decimal Amount { get; set; }
       
         public decimal Balance { get; set; }
-        public int TransactionType {get; set;}
+        //public int TransactionType {get; set;}
+
+        public TransactionType TransactionType {get; set;}
        
         
 }

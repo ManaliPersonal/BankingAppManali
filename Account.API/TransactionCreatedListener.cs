@@ -43,9 +43,9 @@ namespace Account.API
                     Log.Information("outside of the if block");
                    
 
-                    if (response.TransactionType==1)
+                    if (response.TransactionType==TransactionType.Credit)
                     {
-                        Log.Information("Entered in If Block");
+                        Log.Information("Entered in If Block of Credit");
                         BankAccount.AccountBalance=BankAccount.AccountBalance+response.Amount;
                         _context.Entry(BankAccount).State = EntityState.Modified;
                         Log.Information("Before savechanges method of the if block");
@@ -55,7 +55,7 @@ namespace Account.API
                     else
                     {
                          //  reduce the amount if debit
-                    Log.Information("Entered in else Block of transactiontype");
+                    Log.Information("Entered in else Block of transactiontype debit ");
                     BankAccount.AccountBalance = BankAccount.AccountBalance - response.Amount;
                     _context.Entry(BankAccount).State = EntityState.Modified;
                     _context.SaveChanges();
@@ -71,7 +71,7 @@ namespace Account.API
                             AccountId = response.AccountId,
                             Balance = response.Balance,
                             IsSuccess = true,
-                            TransactionType=response.TransactionType
+                            TransactionType= (int)response.TransactionType
                         }
                     ), "account_response_routingkey", null);
 
@@ -88,7 +88,7 @@ namespace Account.API
                             AccountId = response.AccountId,
                             Balance = response.Balance,
                             IsSuccess = false,
-                            TransactionType=response.TransactionType
+                            TransactionType= (int)response.TransactionType
                         }
                     ), "account_response_routingkey", null);
 

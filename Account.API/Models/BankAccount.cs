@@ -10,7 +10,7 @@ namespace Account.API.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string? AccountHolderName { get; set; }
-        public AccountType AccountType{get; set;}
+        public AccountTypeEnum AccountType{get; set;}
         public decimal AccountBalance { get; set; }
     }
 
