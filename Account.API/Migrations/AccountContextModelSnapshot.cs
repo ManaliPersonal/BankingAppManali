@@ -25,7 +25,8 @@ namespace Account.API.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("AccountBalance")
-                        .HasColumnType("decimal(65,30)");
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("AccountHolderName")
                         .HasColumnType("longtext");

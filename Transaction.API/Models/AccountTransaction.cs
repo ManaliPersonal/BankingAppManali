@@ -11,12 +11,14 @@ namespace Transaction.API.Models
         // public int Id { get; set; }
         public int TransactionId { get; set; }
         public int AccountId { get; set; }
-        //public TransactionType TransactionType{ get; set; }
-        public int TransactionType{get; set;}
+        public TransactionType TransactionType{ get; set; }
+        //public int TransactionType{get; set;}
+       
         public decimal Amount { get; set; }
 
         public DateTime TransactionDate{get; set;}
 
+         
         
     }
 }

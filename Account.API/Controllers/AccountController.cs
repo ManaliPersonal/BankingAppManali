@@ -3,6 +3,7 @@ using Account.API.DTO;
 using Account.API.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
+using Account.API.Enums;
 
 namespace Account.API.Controllers;
 
@@ -34,14 +35,24 @@ public class AccountController : ControllerBase
             return Ok(result);
         }
 
-      [HttpPost("AddBankAccount")]   
-       public async Task<IActionResult> AddBankAccount([FromBody] BankAccountDto bankAccountDto)
+        [HttpPost("AddBankAccount")]
+       public async Task<IActionResult> AddBankAccount([FromBody] BankAccountRequest bankAccountRequestDto)
         {
-            var bankAccount = _mapper.Map<BankAccount>(bankAccountDto);
+            var bankAccount = _mapper.Map<BankAccount>(bankAccountRequestDto);
             var result = await _accountRepository.PostBankAccount(bankAccount);
-            var addedBankAccountDto = _mapper.Map<BankAccountDto>(result);
-            return Ok(addedBankAccountDto);  
+            var addedBankAccountDto = _mapper.Map<BankAccountResponse>(result);
+            return Ok(addedBankAccountDto);
         }
+
+    //   [HttpPost("AddBankAccount")]   
+    //    public async Task<ActionResult<BankAccountResponse>> AddBankAccount(BankAccount bankAccount)
+    //     {
+    //         var result = await _accountRepository.PostBankAccount(bankAccount);
+    //         //AccountTypeEnum accttype = (AccountTypeEnum)Enum.Parse(typeof(AccountTypeEnum), "AccountType");
+    //         // var vendor = _mapper.Map<BankAccount>(ba);
+    //         var bankAccountDto = _mapper.Map<BankAccountResponse>(result);
+    //         return Ok(bankAccountDto);  
+    //     }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteBankAccount(int id)

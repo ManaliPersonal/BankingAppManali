@@ -1,0 +1,38 @@
+2024-03-27 11:58:24.269 +05:30 [INF] outside of the if block
+2024-03-27 11:58:24.335 +05:30 [INF] Entered in else Block of transactiontype debit 
+2024-03-27 11:58:24.722 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-27 11:58:24.919 +05:30 [INF] outside of the if block
+2024-03-27 11:58:24.919 +05:30 [INF] Entered in If Block of Credit
+2024-03-27 11:58:24.919 +05:30 [INF] Before savechanges method of the if block
+2024-03-27 11:58:24.932 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-27 11:58:24.969 +05:30 [INF] outside of the if block
+2024-03-27 11:58:24.969 +05:30 [INF] Entered in If Block of Credit
+2024-03-27 11:58:24.970 +05:30 [INF] Before savechanges method of the if block
+2024-03-27 11:58:24.982 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-27 11:58:24.987 +05:30 [INF] outside of the if block
+2024-03-27 11:58:24.987 +05:30 [INF] Entered in else Block of transactiontype debit 
+2024-03-27 11:58:24.998 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-27 12:00:03.107 +05:30 [INF] outside of the if block
+2024-03-27 12:00:03.107 +05:30 [INF] Entered in else Block of transactiontype debit 
+2024-03-27 12:00:03.119 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-27 12:00:24.974 +05:30 [INF] outside of the if block
+2024-03-27 12:00:24.974 +05:30 [INF] Entered in If Block of Credit
+2024-03-27 12:00:24.974 +05:30 [INF] Before savechanges method of the if block
+2024-03-27 12:00:24.988 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-27 12:00:54.539 +05:30 [INF] outside of the if block
+2024-03-27 12:00:54.539 +05:30 [INF] Entered in else Block of transactiontype debit 
+2024-03-27 12:00:54.553 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-27 12:01:32.369 +05:30 [INF] outside of the if block
+2024-03-27 12:01:32.369 +05:30 [INF] Entered in If Block of Credit
+2024-03-27 12:01:32.369 +05:30 [INF] Before savechanges method of the if block
+2024-03-27 12:01:32.402 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-27 12:18:27.489 +05:30 [INF] outside of the if block
+2024-03-27 12:18:27.490 +05:30 [INF] Entered in else Block of transactiontype debit 
+2024-03-27 12:18:27.510 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-27 12:19:02.732 +05:30 [INF] outside of the if block
+2024-03-27 12:19:02.732 +05:30 [INF] Entered in If Block of Credit
+2024-03-27 12:19:02.732 +05:30 [INF] Before savechanges method of the if block
+2024-03-27 12:19:02.827 +05:30 [INF] End of publish message to inform Transaction service for success
+2024-03-27 13:07:02.279 +05:30 [INF] outside of the if block
+2024-03-27 13:07:02.321 +05:30 [INF] Entered in else Block of transactiontype debit 
+2024-03-27 13:07:02.385 +05:30 [INF] End of publish message to inform Transaction service for success

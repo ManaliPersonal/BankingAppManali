@@ -7,6 +7,8 @@ using Plain.RabbitMQ;
 using Shared.Models;
 using Microsoft.EntityFrameworkCore;
 using Transaction.API.Services.Interface;
+using Transaction.API.DTO;
+using AutoMapper;
 
 namespace Transaction.API.Controllers
 {
@@ -15,16 +17,26 @@ namespace Transaction.API.Controllers
     public class TransactionController : ControllerBase
     {
         private readonly IAccountTransaction _transactionRepository;
-        public TransactionController(IAccountTransaction transactionRepository)
+          private readonly IMapper _mapper;
+        public TransactionController(IAccountTransaction transactionRepository,IMapper mapper)
         {
             _transactionRepository=transactionRepository;
+            _mapper=mapper;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<AccountTransaction>>> GetTransactions()
+        // [HttpGet]
+        // public async Task<ActionResult<IEnumerable<AccountTransaction>>> GetTransactions()
+        // {
+        //     var result = await _transactionRepository.GetAllTransactions();
+        //     return Ok(result);
+        // }
+
+          [HttpGet("GetAllTransactions")]
+        public async Task<ActionResult<IEnumerable<AccountTransactionResponse>>> GetTransactions()
         {
             var result = await _transactionRepository.GetAllTransactions();
-            return Ok(result);
+            var accountTransactions=_mapper.Map<IEnumerable<AccountTransactionResponse>>(result);
+            return Ok(accountTransactions);
         }
 
         [HttpGet("{id}")]
@@ -36,13 +48,15 @@ namespace Transaction.API.Controllers
             return Ok(transaction);
         }
 
-        
         [HttpPost]
-        public async Task<IActionResult> PostTransaction(AccountTransaction accountTransaction)
+        public async Task<IActionResult> PostTransaction([FromBody]AccountTransactionRequest accountTransactionRequestDto)
         {
-            var result=_transactionRepository.PostTransaction(accountTransaction);
-            return Ok(result);
+            var accountTransaction = _mapper.Map<AccountTransaction>(accountTransactionRequestDto);
+             var result = await _transactionRepository.PostTransaction(accountTransaction);
+             var addedAccountTransactionDto = _mapper.Map<AccountTransactionResponse>(result);
+            return Ok(addedAccountTransactionDto);
         }
+
 
         [HttpPut]
 
