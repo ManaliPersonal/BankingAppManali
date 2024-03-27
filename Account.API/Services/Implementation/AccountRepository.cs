@@ -1,7 +1,6 @@
 using Account.API.Database;
 using Account.API.Models;
 using Account.API.Services.Interface;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Account.API.Services.Implementation;
@@ -17,7 +16,7 @@ public class AccountRepository : IAccountRepository
     public async Task DeleteBankAccount(BankAccount bankAccount)
     {
         if (bankAccount != null)
-        _accountContext.Accounts.Remove(bankAccount);
+            _accountContext.Accounts.Remove(bankAccount);
         _accountContext.SaveChanges();
     }
 
@@ -41,9 +40,22 @@ public class AccountRepository : IAccountRepository
 
     public async Task<BankAccount> PutBankAccount(int id, BankAccount bankAccount)
     {
-        _accountContext.Accounts.Update(bankAccount);
+
+        var existingAccount = await _accountContext.Accounts.FindAsync(id);
+
+        if (existingAccount == null)
+        {
+            return null;
+        }
+
+        existingAccount.AccountHolderName = bankAccount.AccountHolderName;
+        existingAccount.AccountType = bankAccount.AccountType;
+        existingAccount.AccountBalance = bankAccount.AccountBalance;
+
+        _accountContext.Accounts.Update(existingAccount);
         await _accountContext.SaveChangesAsync();
-        return bankAccount;
+
+        return existingAccount;
     }
 }
 

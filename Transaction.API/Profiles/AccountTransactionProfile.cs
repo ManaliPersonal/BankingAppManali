@@ -9,10 +9,10 @@ namespace Account.API.Profiles
         public AccountTransactionProfile()
         {
             CreateMap<AccountTransaction, AccountTransactionResponse>().ReverseMap();
-            CreateMap<AccountTransaction,AccountTransactionRequest>().ReverseMap();
+            CreateMap<AccountTransaction, AccountTransactionRequest>().ReverseMap();
         }
 
 
     }
-    
-    }
+
+}
