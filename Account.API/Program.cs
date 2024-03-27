@@ -37,17 +37,17 @@ builder.Services.AddSingleton<IConnectionProvider>(new ConnectionProvider("amqp:
 
 // configure rabbitmq exchange where Account service publish the message 
 builder.Services.AddSingleton<IPublisher>(p => new Publisher(p.GetService<IConnectionProvider>(),
-    "account_exchange", //exchange name
+    "account_exchange", //exchange name  //Exchanges are elements in the messaging system that route messages to queues
     ExchangeType.Topic //exchange type
 ));
 
 //configure the topic where Account service will be subscribed
 
 builder.Services.AddSingleton<ISubscriber>(s=>new Subscriber(
-s.GetService<IConnectionProvider>(),
-"transaction_exchange",  //exchange name
-"transaction_response_queue", // queue name
-"transaction_created_routingkey", //Routing key
+s.GetService<IConnectionProvider>(),  //connect to RabbitMq
+"transaction_exchange",  //exchange name  //This is the name of the exchange being used. Messages will be published to this exchange.
+"transaction_response_queue", // queue name //This is the name of the queue to which messages will be delivered.
+"transaction_created_routingkey", //Routing key //This is the routing key used to route messages from the exchange to the queue
 ExchangeType.Topic               //exchange type
 ));
 

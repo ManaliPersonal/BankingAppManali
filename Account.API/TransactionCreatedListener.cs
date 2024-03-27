@@ -12,7 +12,7 @@ using Serilog;
 
 namespace Account.API
 {
-    public class TransactionCreatedListener : IHostedService
+    public class TransactionCreatedListener : IHostedService //
     {
         private ISubscriber _subscriber;
         private IPublisher _publisher;
@@ -21,17 +21,17 @@ namespace Account.API
 
         public TransactionCreatedListener(IServiceScopeFactory scopeFactory, ISubscriber subscriber, IPublisher publisher)
         {
-            _publisher = publisher;
-            _subscriber = subscriber;
+            _publisher = publisher; //presumably used for publishing events.
+            _subscriber = subscriber;  //presumably used for subscribing to transaction creation events.
             _scopeFactory = scopeFactory;
         }
 
         private bool Subscribe(string message, IDictionary<string, object> header)
         {
-            var response = JsonConvert.DeserializeObject<TransactionRequest>(message);
-            using (var scope = _scopeFactory.CreateScope())
+            var response = JsonConvert.DeserializeObject<TransactionRequest>(message); //This line deserializes the message string into an object of type TransactionRequest using JSON.NET (Newtonsoft.Json library).
+            using (var scope = _scopeFactory.CreateScope()) //This using statement creates a new scope using the IServiceScopeFactory injected into the class
             {
-                var _context = scope.ServiceProvider.GetRequiredService<AccountContext>();
+                var _context = scope.ServiceProvider.GetRequiredService<AccountContext>(); //Used to interact with database
                 try
                 {
                     BankAccount BankAccount = _context.Accounts.Find(response.AccountId);
