@@ -47,25 +47,19 @@ public class AccountTransactionRepository : IAccountTransaction
          // new inserted identity value
         int id = accountTransaction.TransactionId;
         Log.Information("test");
-        if (accountTransaction.TransactionType.Equals(1))
-        {
-            accountTransaction.setflag=1;
-        }
+       
 
             _publisher.Publish(JsonConvert.SerializeObject(new TransactionRequest
             {
-               
-                
                 TransactionId = accountTransaction.TransactionId,
                 AccountId = accountTransaction.AccountId,
                 Amount = accountTransaction.Amount,
-                TransactionType=accountTransaction.TransactionType
-                
+                TransactionType=accountTransaction.TransactionType               
                 
             }),
               "transaction_created_routingkey",   // routing key
             null);
-           Log.Information("acconttransaction setflag value is"+accountTransaction.setflag);
+     
 
             return result.Entity;
     }

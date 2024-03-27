@@ -17,7 +17,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
     Log.Logger = new LoggerConfiguration().MinimumLevel.Information().
-    WriteTo.File("logging/villaLogs.txt", rollingInterval: RollingInterval.Day).CreateLogger();
+    WriteTo.File("logging/Transactions.txt", rollingInterval: RollingInterval.Day).CreateLogger();
 
 // configure database
 var connectionString = builder.Configuration.GetConnectionString("mysql");

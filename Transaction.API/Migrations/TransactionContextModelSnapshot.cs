@@ -37,9 +37,6 @@ namespace Transaction.API.Migrations
                     b.Property<int>("TransactionType")
                         .HasColumnType("int");
 
-                    b.Property<int>("setflag")
-                        .HasColumnType("int");
-
                     b.HasKey("TransactionId");
 
                     b.ToTable("Transactions");

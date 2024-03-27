@@ -22,8 +22,7 @@ namespace Transaction.API.Migrations
                     AccountId = table.Column<int>(type: "int", nullable: false),
                     TransactionType = table.Column<int>(type: "int", nullable: false),
                     Amount = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
-                    TransactionDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    setflag = table.Column<int>(type: "int", nullable: false)
+                    TransactionDate = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {
