@@ -1,5 +1,6 @@
 using AutoMapper;
 using Account.API.DTO;
+using Account.API.Enums;
 using Account.API.Models;
 
 namespace Account.API.Profiles
@@ -8,7 +9,9 @@ namespace Account.API.Profiles
     {
         public BankAccountProfile()
         {
-            CreateMap<BankAccount, BankAccountResponse>().ReverseMap();
+            CreateMap<BankAccountResponse, BankAccount>();
+            CreateMap<BankAccount, BankAccountResponse>();
+            CreateMap<BankAccount, BankAccountDto>().ReverseMap();
         }
     }
 }

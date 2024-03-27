@@ -35,12 +35,12 @@ public class AccountController : ControllerBase
         }
 
       [HttpPost("AddBankAccount")]   
-       public async Task<IActionResult> AddBankAccount(BankAccount bankAccount)
+       public async Task<IActionResult> AddBankAccount([FromBody] BankAccountDto bankAccountDto)
         {
+            var bankAccount = _mapper.Map<BankAccount>(bankAccountDto);
             var result = await _accountRepository.PostBankAccount(bankAccount);
-            // var vendor = _mapper.Map<BankAccount>(ba);
-            var bankAccountDto = _mapper.Map<BankAccountResponse>(result);
-            return Ok(bankAccountDto);  
+            var addedBankAccountDto = _mapper.Map<BankAccountDto>(result);
+            return Ok(addedBankAccountDto);  
         }
 
         [HttpDelete("{id}")]
